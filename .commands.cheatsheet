@@ -1,3 +1,6 @@
+# Terminal
+[^f] - tmux sessionizer -> find directory, find/create tmux session with dirname as session name
+
 # TMUX
 
 ## general
@@ -6,6 +9,7 @@
 ## sessions
 [*p + d] - detach from current session
 [*p + ( or )] - next / previous session
+[*p + L] - go to previous session
 
 ## windows
 [*p + n,p] - navigate to prior or next window within a session
