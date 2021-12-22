@@ -8,6 +8,8 @@ alias ll="ls -la"
 alias r="rm -rfi"
 alias h="cat /etc/hosts"
 alias eh="nv /etc/hosts"
+alias ds="ansible-vault decrypt ~/src/ansible/.ssh/id_ed25519"
+alias es="ansible-vault encrypt ~/src/ansible/.ssh/id_ed25519"
 
 # tmux
 alias st="tmux"
