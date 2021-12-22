@@ -1,0 +1,19 @@
+# generic
+alias a="cat ~/.dotfiles/.aliases"
+alias ea="nv ~/.dotfiles/.aliases"
+alias cs="cat ~/.dotfiles/.commands.cheatsheet"
+alias ecs="nv ~/.dotfiles/.commands.cheatsheet"
+alias rz="exec zsh"
+alias ll="ls -la"
+alias r="rm -rfi"
+alias h="cat /etc/hosts"
+alias eh="nv /etc/hosts"
+
+# tmux
+alias st="tmux"
+alias ta="tmux a"
+alias tl="tmux list-sessions"
+alias kt="tmux kill-server"
+
+# neovim
+alias nv="nvim"

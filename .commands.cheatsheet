@@ -1,0 +1,17 @@
+# TMUX
+
+## general
+[*p + I] - reload tmux config
+
+## sessions
+[*p + d] - detach from current session
+[*p + ( or )] - next / previous session
+
+## windows
+[*p + n,p] - navigate to prior or next window within a session
+[*p + w] - list all windows with preview of latest commands
+[*p + *#] - go to numbered window
+
+## panes
+[*p + %] - split pane to the right
+[*p + j,h,k,l] - navigate to pane vim-style
