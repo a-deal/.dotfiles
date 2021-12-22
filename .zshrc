@@ -99,6 +99,11 @@ pastefinish() {
 zstyle :bracketed-paste-magic paste-init pasteinit
 zstyle :bracketed-paste-magic paste-finish pastefinish
 
+# enable local executables
+export PATH="$PATH:$HOME/bin"
+typeset -U path # dedup occurences of ~/bin
+
+
 # load up aliases
 if [ -f ~/.dotfiles/.aliases ]; then
     source ~/.dotfiles/.aliases
@@ -110,3 +115,6 @@ fi
 
 # autojump
 [ -f /opt/homebrew/etc/profile.d/autojump.sh ] && . /opt/homebrew/etc/profile.d/autojump.sh
+
+# Keybindings
+bindkey -s ^f "tmux_sessionizer\n"
