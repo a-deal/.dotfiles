@@ -118,3 +118,4 @@ fi
 
 # Keybindings
 bindkey -s ^f "tmux_sessionizer\n"
+bindkey -s ^s "cht.sh\n"
