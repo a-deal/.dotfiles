@@ -10,6 +10,6 @@ if [[ -z $DOTFILES ]]; then
     echo "Setting dotfiles variable: $DOTFILES"
 fi
 
-STOW_FOLDERS=$STOW_FOLDERS 
-DOTFILES=$DOTFILES 
-#$DOTFILES/install
+export STOW_FOLDERS=$STOW_FOLDERS
+export DOTFILES=$DOTFILES
+$DOTFILES/install
