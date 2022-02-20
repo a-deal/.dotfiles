@@ -105,9 +105,7 @@ typeset -U path # dedup occurences of ~/bin
 
 
 # load up aliases
-if [ -f ~/.dotfiles/.aliases ]; then
-    source ~/.dotfiles/.aliases
-elif [ -f ~/.aliases ]; then
+if [ -f ~/.aliases ]; then
     source ~/.aliases
 else
     print "404: ~/.aliases and ~/.dotfiles/.aliases not found."

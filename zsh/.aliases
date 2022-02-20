@@ -1,0 +1,22 @@
+# generic
+alias a="cat ~/.aliases"
+alias ea="nv ~/.aliases"
+alias cs="cat ~/.commands.cheatsheet"
+alias ecs="nv ~/.commands.cheatsheet"
+alias rz="exec zsh"
+alias ez="nv ~/.zshrc"
+alias ll="ls -la"
+alias r="rm -rfi"
+alias h="cat /etc/hosts"
+alias eh="nv /etc/hosts"
+alias ds="ansible-vault decrypt ~/src/ansible/.ssh/id_ed25519"
+alias es="ansible-vault encrypt ~/src/ansible/.ssh/id_ed25519"
+
+# tmux
+alias st="tmux"
+alias ta="tmux a"
+alias tl="tmux list-sessions"
+alias kt="tmux kill-server"
+
+# neovim
+alias nv="nvim"

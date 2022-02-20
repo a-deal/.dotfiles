@@ -1,0 +1,21 @@
+#!/usr/bin/env zsh
+dotfiles=""
+stow_folders=""
+#if [[ -z $STOW_FOLDERS ]]; then
+    # STOW_FOLDERS="bin,netflix,nvim,personal,tmux,uwuntu,xkb,zsh" from Primeagen
+    stow_folders="bin,gh,nvim,tmux,zsh"
+    echo "Setting stow folders variable: $stow_folders"
+#fi
+
+#if [[ -z $DOTFILES ]]; then
+    dotfiles=$HOME/.dotfiles
+    echo "Setting dotfiles variable: $dotfiles"
+#fi
+
+# Note: I had a tough time setting these env variables until I realized that
+#     	scripts run in subshells and therefore can't set system-wide env vars.
+#     	The fix is to run the script itself with a preceding . as in . ./darwin
+#     	to set the below. For more: https://bit.ly/3oXA22s
+export STOW_FOLDERS=$stow_folders
+export DOTFILES=$dotfiles
+#$DOTFILES/install

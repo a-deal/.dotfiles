@@ -1,0 +1,15 @@
+#!/usr/bin/env zsh
+if [[ -z $STOW_FOLDERS ]]; then
+    # STOW_FOLDERS="bin,netflix,nvim,personal,tmux,uwuntu,xkb,zsh" from Primeagen
+    STOW_FOLDERS="bin,gh,nvim,tmux,zsh"
+    echo "Setting stow folders variable: $STOW_FOLDERS"
+fi
+
+if [[ -z $DOTFILES ]]; then
+    DOTFILES=$HOME/.dotfiles
+    echo "Setting dotfiles variable: $DOTFILES"
+fi
+
+STOW_FOLDERS=$STOW_FOLDERS 
+DOTFILES=$DOTFILES 
+#$DOTFILES/install
