@@ -11,6 +11,7 @@ alias h="cat /etc/hosts"
 alias eh="nv /etc/hosts"
 alias ds="ansible-vault decrypt ~/src/ansible/.ssh/id_ed25519"
 alias es="ansible-vault encrypt ~/src/ansible/.ssh/id_ed25519"
+alias ws="ansible-playbook --ask-vault-pass local.yml | pbcopy && docker  run --rm -it nvim-computer bash"
 
 # tmux
 alias st="tmux"
