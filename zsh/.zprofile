@@ -9,4 +9,7 @@ elif [[ -f /usr/local/bin/brew ]]; then
     eval "$(/usr/local/bin/brew shellenv)"
 fi
 
+# Load SSH keys from keychain on startup
+ssh-add --apple-load-keychain 2>/dev/null
+
 # Add any other login shell configurations here

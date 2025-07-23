@@ -12,6 +12,7 @@ echo -e "${GREEN}Bootstrapping dotfiles setup...${NC}"
 echo -e "${YELLOW}Creating directory structure...${NC}"
 mkdir -p ~/.local/bin
 touch ~/.local/bin/env  # Create empty env file if needed
+mkdir -p ~/.ssh/sockets  # For SSH connection multiplexing
 
 # Install oh-my-zsh if not already installed
 if [ ! -d "$HOME/.oh-my-zsh" ]; then
@@ -74,6 +75,38 @@ if command -v brew &> /dev/null && [ -f "Brewfile" ]; then
     brew bundle
 else
     echo -e "${RED}Brewfile not found or brew not available${NC}"
+fi
+
+# SSH Key Setup
+echo -e "${YELLOW}Setting up SSH...${NC}"
+
+# Check if SSH keys exist
+if [ ! -f "$HOME/.ssh/id_ed25519" ] && [ ! -f "$HOME/.ssh/id_rsa" ]; then
+    echo -e "${YELLOW}No SSH keys found. Would you like to generate one? (y/n)${NC}"
+    read -r response
+    if [[ "$response" =~ ^[Yy]$ ]]; then
+        echo -e "${YELLOW}Enter your email for the SSH key:${NC}"
+        read -r email
+        ssh-keygen -t ed25519 -C "$email"
+        
+        # Add to keychain
+        echo -e "${YELLOW}Adding SSH key to keychain...${NC}"
+        ssh-add --apple-use-keychain ~/.ssh/id_ed25519
+        
+        echo -e "${GREEN}SSH key generated!${NC}"
+        echo -e "${YELLOW}Your public key has been copied to clipboard.${NC}"
+        pbcopy < ~/.ssh/id_ed25519.pub
+        echo -e "${YELLOW}Add it to GitHub: https://github.com/settings/ssh/new${NC}"
+    fi
+else
+    # Add existing keys to keychain
+    echo -e "${YELLOW}Adding existing SSH keys to keychain...${NC}"
+    if [ -f "$HOME/.ssh/id_ed25519" ]; then
+        ssh-add --apple-use-keychain ~/.ssh/id_ed25519 2>/dev/null || true
+    fi
+    if [ -f "$HOME/.ssh/id_rsa" ]; then
+        ssh-add --apple-use-keychain ~/.ssh/id_rsa 2>/dev/null || true
+    fi
 fi
 
 echo -e "${GREEN}Bootstrap complete!${NC}"
