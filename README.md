@@ -27,14 +27,24 @@ brew install stow
 
 1. Clone this repository:
    ```bash
-   git clone [your-repo-url] ~/.dotfiles
+   git clone git@github.com:a-deal/.dotfiles.git ~/.dotfiles
    ```
 
-2. Run the setup script:
+2. Run the bootstrap script (first time only):
    ```bash
    cd ~/.dotfiles
-   source ./darwin  # Sets up environment variables
-   ./install        # Creates symlinks with stow
+   ./scripts/bootstrap.sh
+   ```
+   This will:
+   - Install Homebrew (if needed)
+   - Install all packages from Brewfile (tmux, autojump, etc.)
+   - Install oh-my-zsh and plugins
+   - Create necessary directories
+
+3. Install dotfiles:
+   ```bash
+   ./install
+   exec zsh  # Restart shell
    ```
 
 ## Manual Setup Required
