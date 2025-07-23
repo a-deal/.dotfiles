@@ -1,8 +1,5 @@
 # Brewfile - Install with `brew bundle`
 
-# Taps (removed deprecated ones - they're included by default now)
-tap "homebrew/cask-fonts"
-
 # Terminal essentials
 brew "tmux"              # Terminal multiplexer
 brew "stow"              # Symlink manager for dotfiles
@@ -21,9 +18,6 @@ brew "eza"               # Better ls (formerly exa)
 brew "fd"                # Better find
 brew "jq"                # JSON processor
 brew "tree"              # Directory tree viewer
-
-# Fonts
-cask "font-inconsolata-nerd-font"
 
 # Applications
 cask "hyper"             # Terminal emulator
