@@ -20,8 +20,11 @@ alias vim="nvim"
 
 export ZSH="$HOME/.oh-my-zsh"
 
-SPACESHIP_PROMPT_FIRST_PREFIX_SHOW=true # Show prefix before first line in prompt
+export SPACESHIP_PROMPT_FIRST_PREFIX_SHOW=true # Show prefix before first line in prompt
+export SPACESHIP_BATTERY_SHOW=false
+ 
 ZSH_THEME="spaceship" # Set theme
+
 
 plugins=(
   git # https://github.com/robbyrussell/oh-my-zsh/wiki/Plugin:git
@@ -112,9 +115,45 @@ else
     print "404: ~/.aliases and ~/.dotfiles/.aliases not found."
 fi
 
+# load environment variables from .env
+[ -f ~/.env ] && source ~/.env
+
 # autojump
 [ -f /opt/homebrew/etc/profile.d/autojump.sh ] && . /opt/homebrew/etc/profile.d/autojump.sh
 
 # Keybindings
 bindkey -s ^f "tmux_sessionizer\n"
 bindkey -s ^s "cht.sh\n"
+
+# The next line updates PATH for the Google Cloud SDK.
+if [ -f '/Users/dealair/src/utils/google-cloud-sdk/path.zsh.inc' ]; then . '/Users/dealair/src/utils/google-cloud-sdk/path.zsh.inc'; fi
+
+# The next line enables shell command completion for gcloud.
+if [ -f '/Users/dealair/src/utils/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/dealair/src/utils/google-cloud-sdk/completion.zsh.inc'; fi
+
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+
+# Added by Windsurf
+export PATH="/Users/dealair/.codeium/windsurf/bin:$PATH"
+
+#
+# Workstation Management Utilities
+# Available executables in /usr/local/bin
+#
+
+# App Management Tools
+# app-review          - Review installed applications with sizes and recent changes
+# app-cleanup         - Clean up application caches and temporary files  
+# remove-protected-apps - Remove protected/stubborn applications with elevated privileges
+
+# Quick aliases for common workstation tasks
+alias apps="app-review"
+alias clean-apps="app-cleanup"
+alias remove-app="remove-protected-apps"
+
+
+. "$HOME/.local/bin/env"
+export PATH="$HOME/.local/bin:$PATH"
+export PATH="$HOME/src/scripts:$PATH"

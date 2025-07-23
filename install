@@ -1,4 +1,5 @@
 #!/usr/bin/env zsh
+echo "Installing dotfiles"
 pushd $DOTFILES
 for folder in $(echo $STOW_FOLDERS | sed "s/,/ /g")
 do
@@ -7,3 +8,4 @@ do
     stow $folder
 done
 popd
+echo "Completed installation"

@@ -1,0 +1,11 @@
+.DS_Store
+*.swp
+*~
+.idea/
+.vscode/
+
+# GitHub CLI - contains personal access token
+gh/.config/gh/hosts.yml
+
+# Claude desktop config - contains local paths
+claude/claude_desktop_config.json

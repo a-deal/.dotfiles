@@ -3,7 +3,7 @@ dotfiles=""
 stow_folders=""
 #if [[ -z $STOW_FOLDERS ]]; then
     # STOW_FOLDERS="bin,netflix,nvim,personal,tmux,uwuntu,xkb,zsh" from Primeagen
-    stow_folders="bin,gh,nvim,tmux,zsh"
+    stow_folders="bin,gh,nvim,tmux,zsh,hyper,claude"
     echo "Setting stow folders variable: $stow_folders"
 #fi
 

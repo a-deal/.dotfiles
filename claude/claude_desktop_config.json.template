@@ -1,0 +1,8 @@
+{
+  "mcpServers": {
+    "zen": {
+      "command": "/path/to/your/zen-mcp-server/.zen_venv/bin/python",
+      "args": ["/path/to/your/zen-mcp-server/server.py"]
+    }
+  }
+}
