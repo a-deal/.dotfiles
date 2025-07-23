@@ -20,13 +20,35 @@ if [ ! -d "$HOME/.oh-my-zsh" ]; then
     
     # Install additional oh-my-zsh plugins
     echo -e "${YELLOW}Installing oh-my-zsh plugins...${NC}"
-    git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
-    git clone https://github.com/zsh-users/zsh-completions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-completions
-    git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
+    
+    # zsh-autosuggestions
+    if [ ! -d "${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions" ]; then
+        git clone https://github.com/zsh-users/zsh-autosuggestions "${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions"
+    else
+        echo -e "${GREEN}zsh-autosuggestions already installed${NC}"
+    fi
+    
+    # zsh-completions
+    if [ ! -d "${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-completions" ]; then
+        git clone https://github.com/zsh-users/zsh-completions "${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-completions"
+    else
+        echo -e "${GREEN}zsh-completions already installed${NC}"
+    fi
+    
+    # zsh-syntax-highlighting
+    if [ ! -d "${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting" ]; then
+        git clone https://github.com/zsh-users/zsh-syntax-highlighting.git "${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting"
+    else
+        echo -e "${GREEN}zsh-syntax-highlighting already installed${NC}"
+    fi
     
     # Install spaceship theme
-    git clone https://github.com/spaceship-prompt/spaceship-prompt.git "$HOME/.oh-my-zsh/custom/themes/spaceship-prompt" --depth=1
-    ln -s "$HOME/.oh-my-zsh/custom/themes/spaceship-prompt/spaceship.zsh-theme" "$HOME/.oh-my-zsh/custom/themes/spaceship.zsh-theme"
+    if [ ! -d "$HOME/.oh-my-zsh/custom/themes/spaceship-prompt" ]; then
+        git clone https://github.com/spaceship-prompt/spaceship-prompt.git "$HOME/.oh-my-zsh/custom/themes/spaceship-prompt" --depth=1
+        ln -sf "$HOME/.oh-my-zsh/custom/themes/spaceship-prompt/spaceship.zsh-theme" "$HOME/.oh-my-zsh/custom/themes/spaceship.zsh-theme"
+    else
+        echo -e "${GREEN}spaceship theme already installed${NC}"
+    fi
 else
     echo -e "${GREEN}oh-my-zsh already installed${NC}"
 fi
