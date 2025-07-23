@@ -65,7 +65,7 @@ After installation, you'll need to:
 
 3. **Hyper Terminal**: Install from https://hyper.is
 
-4. **Fonts**: Install Inconsolata for Powerline font for proper terminal display
+4. **Fonts**: The Inconsolata Nerd Font will be installed automatically via Brewfile
 
 5. **tmux plugins**: Start tmux and press `Ctrl+a` then `I` to install plugins
 

@@ -1,9 +1,7 @@
 # Brewfile - Install with `brew bundle`
 
-# Taps
-tap "homebrew/bundle"
-tap "homebrew/cask"
-tap "homebrew/core"
+# Taps (removed deprecated ones - they're included by default now)
+tap "homebrew/cask-fonts"
 
 # Terminal essentials
 brew "tmux"              # Terminal multiplexer
@@ -25,7 +23,7 @@ brew "jq"                # JSON processor
 brew "tree"              # Directory tree viewer
 
 # Fonts
-cask "font-inconsolata-for-powerline"
+cask "font-inconsolata-nerd-font"
 
 # Applications
 cask "hyper"             # Terminal emulator
