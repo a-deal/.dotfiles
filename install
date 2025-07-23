@@ -1,11 +1,21 @@
 #!/usr/bin/env zsh
 echo "Installing dotfiles"
-pushd $DOTFILES
+
+# Change to dotfiles directory
+if [[ -z $DOTFILES ]]; then
+    DOTFILES=$HOME/.dotfiles
+fi
+cd $DOTFILES
+
+# Source darwin to set up environment variables
+source ./darwin
+
+# Run stow for each folder
 for folder in $(echo $STOW_FOLDERS | sed "s/,/ /g")
 do
-    echo $folder
-    stow -D $folder
+    echo "Stowing $folder..."
+    stow -D $folder 2>/dev/null  # Remove existing links quietly
     stow $folder
 done
-popd
+
 echo "Completed installation"
